@@ -7,14 +7,14 @@ CREATE TABLE IF NOT EXISTS
 CREATE TABLE IF NOT EXISTS 
 	singer ( 
 		id serial NOT NULL PRIMARY KEY , 
-		name varchar(40) NOT NULL, 
-		genre_id integer NOT NULL REFERENCES genre (id)
+		name varchar(40) NOT NULL
 	);
 
 CREATE TABLE IF NOT EXISTS 
 	singer_genres ( 
 		singer_id integer NOT NULL REFERENCES singer (id), 
-		genre_id integer NOT NULL REFERENCES genre (id)
+		genre_id integer NOT NULL REFERENCES genre (id),
+		primary key(singer_id, genre_id)
 	);
 
 CREATE TABLE IF NOT EXISTS 
@@ -33,7 +33,8 @@ CREATE TABLE IF NOT EXISTS
 CREATE TABLE IF NOT EXISTS 
 	singer_albums ( 
 		singer_id integer NOT NULL REFERENCES singer (id), 
-		album_id integer NOT NULL REFERENCES album (id)
+		album_id integer NOT NULL REFERENCES album (id),
+		primary key(singer_id, album_id)
 	);
 		
 CREATE TABLE IF NOT EXISTS 
@@ -54,5 +55,6 @@ CREATE TABLE IF NOT EXISTS
 CREATE TABLE IF NOT EXISTS 
 	comp_traks ( 
 		comp_id integer NOT NULL REFERENCES compilation (id), 
-		track_id integer NOT NULL REFERENCES track (id)
+		track_id integer NOT NULL REFERENCES track (id),
+		primary key(comp_id, track_id)
 	);
