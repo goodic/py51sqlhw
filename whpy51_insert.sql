@@ -26,7 +26,8 @@ INSERT INTO singer_genres (singer_id, genre_id) VALUES
 (5, 4),
 (6, 1),
 (7, 2),
-(8, 5)
+(8, 5),
+(3, 1)
 ;
 
 INSERT INTO album (name, year) VALUES
